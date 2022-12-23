@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--very-dark-blue);
+    background-image: url('../images/bg-mobile.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section {
+    padding: 40px;
+    background-color: var(--dark-blue);
+}
+
+section:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 10px 90px 10px 10px;
+}
+
+section:nth-child(1) .logo {
+    width: 120px;
+}
+
+section:nth-child(1) .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+section:nth-child(1) .icons button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--very-dark-blue);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+section:nth-child(2) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    color: var(--pale-blue);
+    padding-bottom: 50px;
+}
+
+section:nth-child(2) p {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+section:nth-child(2) .used-space {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section:nth-child(2) .used-space progress {
+    width: auto;
+    height: 20px;
+    position: relative;
+    /* border-radius: 10px;
+    overflow: hidden; */
+}
+
+section:nth-child(2) .used-space progress::before,
+section:nth-child(2) .used-space progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+section:nth-child(2) .used-space progress::before {
+    width: 100%;
+    background: var(--very-dark-blue);
+    border-radius: 10px;
+}
+
+section:nth-child(2) .used-space progress::after {
+    width: 81.5%;
+    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: 10px;
+    height: 70%;
+    top: 50%;
+    transform: translate(4px, -50%);
+}
+
+section:nth-child(2) .used-space div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+section:nth-child(2) .used-space div p {
+    font-weight: 700;
+}
+
+section:nth-child(2) .available-space {
+    width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 30px;
+    background-color: var(--pale-blue);
+    color: var(--very-dark-blue);
+    border-radius: 10px;
+}
+
+section:nth-child(2) .available-space h2 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+section:nth-child(2) .available-space p {
+    color: var(--grayish-blue);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1000px) {
+    body {
+        background-image: url('../images/bg-desktop.png');
+        background-position: left bottom;
+        background-repeat: no-repeat;
+        background-size: 100vw 50vh;
+    }
+
+    main {
+        width: 800px;
+        flex-direction: row;
+        align-items: end;
+    }
+
+    section:nth-child(1) {
+        flex-grow: 1;
+    }
+
+    section:nth-child(2) {
+        flex-grow: 4;
+        height: 150px;
+    }
+
+    section:nth-child(2) .available-space {
+        top: 0;
+        right: 0;
+        left: auto;
+        border-radius: 10px 10px 0 10px;
+        transform: translate(-40px, -50%);
+    }
+
+    section:nth-child(2) .available-space::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 98%;
+        border: 20px solid transparent;
+        border-top-color: var(--pale-blue);
+        border-bottom: 0;
+        border-right: 0;
+    }
+}
